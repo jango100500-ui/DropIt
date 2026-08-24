@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import Header from './components/Header';
+import BankCard from './components/BankCard';
 
 export default function App() {
   useEffect(() => {
@@ -17,5 +19,10 @@ export default function App() {
     };
   }, []);
 
-  return <main style={{ width: '100%', height: '100%', backgroundColor: '#ffffff' }} />;
+  return (
+    <main style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <Header />
+      <BankCard />
+    </main>
+  );
 }
