@@ -1,6 +1,6 @@
 {
-  "short_name": "DropIt",
-  "name": "DropIt",
+  "short_name": "iOS App",
+  "name": "iOS App",
   "icons": [
     {
       "src": "/apple-touch-icon.png",
@@ -16,8 +16,8 @@
     }
   ],
   "start_url": "/",
-  "background_color": "#FFFFFF",
-  "theme_color": "#FFFFFF",
+  "background_color": "#070709",
+  "theme_color": "#070709",
   "display": "standalone",
   "orientation": "portrait"
 }
