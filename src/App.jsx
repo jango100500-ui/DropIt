@@ -7,7 +7,6 @@ export default function App() {
       e.preventDefault();
     };
 
-    // Блокируем скейл и системные свайпы
     document.addEventListener('gesturestart', preventDefault, { passive: false });
     document.addEventListener('gesturechange', preventDefault, { passive: false });
     document.addEventListener('gestureend', preventDefault, { passive: false });
@@ -21,41 +20,41 @@ export default function App() {
 
   return (
     <div className="app-container">
-      {/* Вставка на верхнюю треть экрана */}
-      <div className="top-section">
-        <div className="header-content">
+      <section className="top-backdrop">
+        <header className="header-bar">
           <div className="header-left">
-            <div className="liquid-glass avatar-circle"></div>
+            <div className="liquid-glass-circle avatar-circle"></div>
             <div className="header-skeletons">
-              <div className="skeleton-name"></div>
-              <div className="skeleton-id"></div>
+              <div className="skeleton-pill name-pill"></div>
+              <div className="skeleton-pill id-pill"></div>
             </div>
           </div>
           
           <div className="header-right">
-            <div className="liquid-glass settings-circle">
+            <div className="liquid-glass-circle settings-circle">
               <img src="/settings.png" alt="Settings" className="settings-icon" />
             </div>
           </div>
-        </div>
-      </div>
-      
-      {/* Основная часть с карточкой */}
-      <div className="main-section">
-        <div className="visa-card">
-          <div className="card-top">
-            <img src="/dropit.png" alt="DropIt Logo" className="card-logo" />
-          </div>
-          
-          <div className="card-bottom">
-            <div className="card-balance">
-              <span className="currency">$</span>
-              <span className="amount">12 450</span>
+        </header>
+
+        <div className="card-wrapper">
+          <div className="visa-card">
+            <div className="card-top">
+              <img src="/dropit.png" alt="DropIt" className="card-logo" />
             </div>
-            <div className="card-brand">DropIt</div>
+
+            <div className="card-bottom">
+              <div className="card-skeletons">
+                <div className="skeleton-card-pill balance-pill"></div>
+                <div className="skeleton-card-pill user-pill"></div>
+              </div>
+              <div className="card-brand">DropIt</div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <main className="content-area"></main>
     </div>
   );
 }
