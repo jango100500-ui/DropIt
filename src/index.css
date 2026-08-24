@@ -40,46 +40,45 @@ body {
   flex-direction: column;
 }
 
-/* ================== ВЕРХНЯЯ ТРЕТЬ ================== */
-.top-section {
-  height: 33.33vh;
-  background-color: #121215; /* Немного светлее основного фона */
+.top-backdrop {
+  height: 38vh;
+  min-height: 290px;
+  background-color: #131316;
   padding-top: env(safe-area-inset-top);
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
   display: flex;
   flex-direction: column;
-  position: relative;
+  justify-content: space-between;
+  padding-bottom: 18px;
   z-index: 10;
 }
 
-.header-content {
-  padding: 16px 24px;
+.header-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  padding: 12px 20px 0 20px;
 }
 
 .header-left {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
-/* Эффект Liquid Glass для кругов */
-.liquid-glass {
-  width: 48px;
-  height: 48px;
+.liquid-glass-circle {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05); /* Легкое высветление фона */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  /* Создаем контур: сверху-слева светлее, снизу-справа темнее */
+  background: rgba(26, 26, 29, 0.72);
+  backdrop-filter: blur(30px) saturate(190%);
+  -webkit-backdrop-filter: blur(30px) saturate(190%);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
   box-shadow: 
-    inset 1px 1px 1px rgba(255, 255, 255, 0.15), 
-    inset -1px -1px 2px rgba(0, 0, 0, 0.4),
-    0 4px 12px rgba(0, 0, 0, 0.2);
+    0 8px 24px rgba(0, 0, 0, 0.7),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.22),
+    inset 0 -1.5px 1px rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,64 +86,50 @@ body {
 }
 
 .settings-icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
-  opacity: 0.9;
+  opacity: 1;
 }
 
-/* Анимация загрузки (скелетоны) */
 .header-skeletons {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
-@keyframes skeleton-pulse {
-  0% { opacity: 0.8; }
-  50% { opacity: 0.4; }
-  100% { opacity: 0.8; }
-}
-
-.skeleton-name {
-  width: 130px;
-  height: 14px;
-  border-radius: 7px;
-  background-color: #2c2c2e;
-  animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.skeleton-id {
-  width: 80px;
-  height: 12px;
+.skeleton-pill {
   border-radius: 6px;
-  background-color: #2c2c2e;
+  background-color: #222226;
   animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.name-pill {
+  width: 110px;
+  height: 14px;
+}
+
+.id-pill {
+  width: 65px;
+  height: 11px;
   animation-delay: 0.2s;
 }
 
-/* ================== ОСНОВНАЯ ЧАСТЬ ================== */
-.main-section {
-  flex: 1;
-  padding: 32px 24px;
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
+.card-wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Карточка прижимается ближе к верху этой секции */
+  align-items: center;
+  padding: 0 20px;
 }
 
-/* ================== КАРТОЧКА VISA ================== */
 .visa-card {
   width: 100%;
-  max-width: 380px;
-  aspect-ratio: 1.586; /* Точные пропорции реальной банковской карты */
-  border-radius: 20px;
-  /* Медовый цвет: слева вверху (0% 0%) немного светлее */
-  background: radial-gradient(circle at 0% 0%, #ffb74d 0%, #f59e0b 35%, #d97706 100%);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
-  padding: 24px;
+  max-width: 300px;
+  aspect-ratio: 1.586;
+  border-radius: 18px;
+  background: radial-gradient(circle at 0% 0%, #ffa534 0%, #f08d00 45%, #d47500 100%);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  padding: 16px 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -154,13 +139,13 @@ body {
 
 .card-top {
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
 }
 
 .card-logo {
-  height: 24px;
+  height: 42px;
   width: auto;
-  max-width: 100px;
+  max-width: 120px;
   object-fit: contain;
 }
 
@@ -170,33 +155,55 @@ body {
   align-items: flex-end;
 }
 
-.card-balance {
+.card-skeletons {
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
   gap: 6px;
 }
 
-.currency {
-  font-size: 22px;
-  font-weight: 600;
-  opacity: 0.9;
-  color: #ffffff;
+.skeleton-card-pill {
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(4px);
+  animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.amount {
-  font-size: 34px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  color: #ffffff;
+.balance-pill {
+  width: 90px;
+  height: 22px;
+  border-radius: 7px;
 }
 
-/* Тот самый Montserrat для бренда в правом нижнем углу */
+.user-pill {
+  width: 60px;
+  height: 12px;
+  animation-delay: 0.2s;
+}
+
 .card-brand {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 19px;
   color: #ffffff;
   opacity: 0.95;
+  letter-spacing: -0.2px;
+}
+
+.content-area {
+  flex: 1;
+  background-color: #0a0a0c;
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0.85;
+  }
 }
 
 img,
