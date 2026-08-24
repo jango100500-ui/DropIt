@@ -16,8 +16,8 @@ body {
   width: 100%;
   height: 100%;
   height: 100dvh;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #0a0a0c;
+  color: #ffffff;
   overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
   touch-action: none;
@@ -32,7 +32,6 @@ body {
   width: 100%;
   height: 100%;
   height: 100dvh;
-  background-color: #ffffff;
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
   padding-left: env(safe-area-inset-left);
@@ -47,4 +46,16 @@ video,
 canvas {
   pointer-events: none;
   -webkit-user-drag: none;
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
